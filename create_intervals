@@ -1,0 +1,16 @@
+def create_intervals(data):
+    if not data:
+        return []
+    data = sorted(data)
+    intervals = []
+    start = last = data[0]
+    for i in data[1:]:
+        diff = i-last
+        if diff>1:
+            intervals.append((start,last))
+            start = i
+        last = i
+    if start:        
+        intervals.append((start, last))
+    
+    return intervals
